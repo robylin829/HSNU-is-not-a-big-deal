@@ -135,6 +135,123 @@ public class YourService extends KiboRpcService {
     @Override
     protected void runPlan3(){
         // write your plan 3 here
+        String tn = "hsnu is not a big deal";
+        api.startMission(); //開始
+        Log.i(tn,"mission start");
+        int id_ls[2]={}
+        while (true)
+            // 獲得兩組target位置
+            List<Integer> id_ls = api.getActiveTargets();
+            //從起點移動到一點上
+            if (id_ls[0]=1) {
+                api.moveTo(point.point1,point.quaternion1,false);
+            }
+            if (id_ls[0]=2) {
+                api.moveTo(point.point2,point.quaternion2,false);
+            }
+            if (id_ls[0]=3) {
+                api.moveTo(point.point3,point.quaternion3,false);
+            }
+            if (id_ls[0]=4) {
+                api.moveTo(point.point4,point.quaternion4,false);
+            }
+            if (id_ls[0]=5) {
+                api.moveTo(point.point5,point.quaternion5,false);
+            }
+            if (id_ls[0]=6) {
+                api.moveTo(point.point6,point.quaternion6,false);
+            }
+            
+                
+            api.moveTo(point, quaternion, false);
+            Log.i(teamName , "move to target1");
+            // 拿到照片
+            Mat image = api.getMatNavCam();
+            api.saveMatImage(image,"nav.jpg");
+            //發射雷射光
+            Result r = api.laserControl(true);
+            int numberTry = 3;
+            while(r == null && numberTry != 0) {
+                r = api.laserControl(true);
+                numberTry--;
+        }
+            // 拍snapshots
+            int target_id = 1;
+            api.takeTargetSnapshot(target_id);
+        
+            //從target1移動到原點
+            Point point = new Point(9.815 ,-9.806, 4.293);
+            Quaternion quaternion = new Quaternion(1 ,0 ,0 ,0); //(x,y,z,w) w:cos(theta/2)
+            api.moveTo(point, quaternion, false);
+            Log.i(teamName , "move to start");
+
+            //從起點移動到一點上
+            if (id_ls[0]=1) {
+                api.moveTo(point.point1,point.quaternion1,false);
+            }
+            if (id_ls[0]=2) {
+                api.moveTo(point.point2,point.quaternion2,false);
+            }
+            if (id_ls[0]=3) {
+                api.moveTo(point.point3,point.quaternion3,false);
+            }
+            if (id_ls[0]=4) {
+                api.moveTo(point.point4,point.quaternion4,false);
+            }
+            if (id_ls[0]=5) {
+                api.moveTo(point.point5,point.quaternion5,false);
+            }
+            if (id_ls[0]=6) {
+                api.moveTo(point.point6,point.quaternion6,false);
+            }
+            Log.i(teamName , "move to target2");
+            // 拿到照片
+            Mat image = api.getMatNavCam();
+            api.saveMatImage(image,"nav.jpg");
+            //發射雷射光
+            Result r = api.laserControl(true);
+            int numberTry = 3;
+            while(r == null && numberTry != 0) {
+                r = api.laserControl(true);
+                numberTry--;
+        }
+            // 拍snapshots
+            int target_id = 1;
+            api.takeTargetSnapshot(target_id);
+
+            // 查看所剩時間
+            List<Long> timeRemaining = api.getTimeRemaining();
+            // 時間是否夠
+            if (timeRemaining.get(1) < 30000){
+                break;
+            }
+
+    }  
+            
+        // 開手電筒
+        api.flashlightControlFront(0.05f);
+
+        
+         //移動到QRcode上
+            Point point = new Point(11.381944 ,-8.566172 ,3.76203);
+            Quaternion quaternion = new Quaternion(0 ,0 ,0 ,1); //(x,y,z,w) w:cos(theta/2)
+        // 掃QRcode
+        String mQrContent = 某函數?;
+
+        // 關燈
+        api.flashlightControlFront(0.00f);
+
+        // 告知完成
+        api.notifyGoingToGoal();
+
+        //移動到goal上
+            Point point = new Point(11.143d, -6.7607d, 4.9654d);
+            Quaternion quaternion = new Quaternion(0, 0, -0.707, 0.707); //(x,y,z,w) w:cos(theta/2)
+        // 告知完成任務
+        api.reportMissionCompletion(mQrContent);  
+            
+            
+        }
     }
 
 }
