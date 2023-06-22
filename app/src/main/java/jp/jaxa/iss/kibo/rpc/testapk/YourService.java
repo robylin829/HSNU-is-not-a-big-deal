@@ -16,7 +16,6 @@ public class YourService extends KiboRpcService {
     protected void runPlan1(){
         // write your plan 1 here
         String tn = "hsnu is not a big deal";
-        int loop_counter = 0;
         api.startMission(); //開始
         Log.i(tn,"mission start");
         int idnex[6][3]={{9.815 ,-9.806, 4.293},{11.2625 ,-10.58 ,5.3625},{10.513384 ,-9.085172 ,3.76203},{10.6031, -7.71007 ,3.76093},{9.866984 ,-6.673972, 5.09531},{11.102 ,-8.0304 ,5.9076},{12.023 ,-8.989 ,4.8305},{11.381944 ,-8.566172 ,3.76203}
