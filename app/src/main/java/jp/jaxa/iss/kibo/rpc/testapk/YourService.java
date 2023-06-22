@@ -20,8 +20,14 @@ public class YourService extends KiboRpcService {
         api.startMission(); //開始
         Log.i(tn,"mission start");
 
-        //從起點移動到一點上
-        api.moveTo(point.point1,point.quaternion1,false);
+        while (true){
+            // 獲得兩組target位置
+            List<Integer> list = api.getActiveTargets();
+            //從起點移動到一點上
+            Point point = new Point(list[1]);
+            Quaternion quaternion = new Quaternion(0f, 0f, 0f, 1f); //(x,y,z,w) w:cos(theta/2)
+            api.moveTo(point, quaternion, false);
+            Log.i(teamName , "move to target1");
 
         //發射雷射光
         Result r = api.laserControl(true);
