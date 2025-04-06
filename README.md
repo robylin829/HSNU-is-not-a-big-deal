@@ -1,4 +1,10 @@
 # HSNU-is-not-a-big-deal
-## NO pull and fork
-## if you fork ,you fucked 
+
+
+## stable java version
+
+```text
+java -version == "21.0.5"
+```
+
 
