@@ -10,17 +10,17 @@ java -version == "21.0.5"
 
 ##架構
 ```text
-app
-gradle/wrapper
-guest_science_library
-kibo_rpc_api
-.gitignore
-LICENSE.txt
-build.gradle
-gradle.properties
-gradlew
-gradlew.bat
-settings.gradle
+|-app
+|-gradle/wrapper
+|-guest_science_library
+|-kibo_rpc_api
+|-.gitignore
+|-LICENSE.txt
+|-build.gradle
+|-gradle.properties
+|-gradlew
+|-gradlew.bat
+-settings.gradle
 ```
 
 ## demo 
